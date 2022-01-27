@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Lifetrack</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tasks">TASKS</string>
+    <string name="news">NEWS</string>
+    <string name="results">RESULTS</string>
+    <string name="home">HOME</string>
+    <string name="welcome_to_productive_life">Welcome to productive life</string>
+    <string name="collaboration_with_students">Collaboration with students</string>
+    <string name="sign_in">Sign in</string>
+    <string name="skip">Skip</string>
+    <string name="you_have_already_an_account">You have already an account?</string>
+    <string name="gdg">gdg</string>
+    <string name="write_anything_you_want">Write anything you want</string>
+    <string name="due_data">Due data</string>
+    <string name="repeat">Repeat</string>
+    <string name="_1_20_22">1/20/22</string>
+    <string name="add_new_task">Add new task</string>
+    <string name="due_date">Due date</string>
+    <string name="back_to_task_list">Back to task list</string>
+    <string name="go_to_create">Go to create</string>
+    <string name="custom">Custom</string>
+    <string name="every_year">Every year</string>
+    <string name="every_month">Every month</string>
+    <string name="every_week">Every week</string>
+    <string name="every_day">Every day</string>
+    <string name="never">Never</string>
+    <string name="repeat_task">Repeat task</string>
+    <string name="add_extra_task">ADD EXTRA TASK</string>
+</resources>

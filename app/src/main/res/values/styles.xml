@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="EditTextTaskFragment">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rectangle</item>
+        <item name="android:hint">@string/write_anything_you_want</item>
+        <item name="android:padding">@dimen/default_edittext_padding_size</item>
+        <item name="android:textSize">@dimen/default_edittext_text_size</item>
+        <item name="android:fontFamily">@font/proxima_nova_thin</item>
+
+    </style>
+
+    <style name="DueDataAndRepeatTaskFragment">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">@drawable/rectangle</item>
+        <item name="android:hint">@string/write_anything_you_want</item>
+        <item name="android:drawablePadding">@dimen/textview_create_task_drawable_padding</item>
+        <item name="android:layout_marginTop">@dimen/textview_margin_top</item>
+        <item name="android:padding">@dimen/due_data_repeat_padding_size</item>
+        <item name="android:textSize">@dimen/default_textview_size</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+
+    </style>
+
+    <style name="DueDataAndRepeatHintsTaskFragment">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">@dimen/default_textview_size</item>
+        <item name="android:layout_marginTop">@dimen/textview_margin_top</item>
+
+    </style>
+
+
+    <style name="BoardingTextViews">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/default_textview_size</item>
+        <item name="android:padding">@dimen/default_textview_padding_size</item>
+
+
+    </style>
+
+</resources>

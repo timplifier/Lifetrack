@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainBoardFragment">
+
+    <dialog
+        android:id="@+id/createNotesFragment"
+        android:name="com.example.lifetrack.ui.fragments.CreateNotesFragment"
+        android:label="fragment_create_task"
+        tools:layout="@layout/fragment_create_notes" />
+    <fragment
+        android:id="@+id/mainBoardFragment"
+        android:name="com.example.lifetrack.ui.fragments.boarding.MainBoardFragment"
+        android:label="fragment_main_board"
+        tools:layout="@layout/fragment_main_board" />
+    <activity
+        android:id="@+id/splashScreen"
+        android:name="com.example.lifetrack.ui.activities.SplashScreen"
+        android:label="activity_splash_screen"
+        tools:layout="@layout/activity_splash_screen" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.lifetrack.ui.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+</navigation>
