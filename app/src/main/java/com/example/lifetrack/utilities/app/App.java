@@ -8,12 +8,11 @@ import com.example.lifetrack.data.NoteDatabase;
 
 
 public class App extends Application {
-    static App app;
     NoteDatabase db;
+    static App app;
 
-    public static App getApp() {
-        return app;
-    }
+
+
 
     public void onCreate() {
         super.onCreate();
@@ -24,6 +23,9 @@ public class App extends Application {
 
     public NoteDatabase getDb() {
         return db;
+    }
+    public static App getApp() {
+        return app;
     }
 
 

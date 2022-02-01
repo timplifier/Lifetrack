@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fragment_sing_up_background"
+    tools:context=".ui.fragments.auth.SignUpFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/tvv_lifetrack"
+        style="@style/LifetrackTextView"
+        android:layout_marginBottom="550dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_phone_number"
+        style="@style/EdittextInSignUpFragment"
+        android:layout_marginTop="140dp"
+        android:autofillHints="false"
+        android:hint="@string/your_number"
+        android:inputType="phone"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvv_lifetrack" />
+
+    <EditText
+        android:id="@+id/et_verification_code"
+        style="@style/EdittextInSignUpFragment"
+        android:layout_margin="30dp"
+        android:autofillHints="false"
+        android:hint="@string/your_verification_code"
+        android:inputType="number"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_phone_number" />
+
+    <TextView
+        style="@style/DueDataAndRepeatHintsTaskFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
+        android:text="@string/number"
+        app:layout_constraintStart_toStartOf="@id/et_phone_number"
+        app:layout_constraintTop_toTopOf="@id/et_phone_number" />
+
+    <TextView
+        style="@style/DueDataAndRepeatHintsTaskFragment"
+        android:layout_marginTop="-20dp"
+        android:text="@string/verification_code"
+        app:layout_constraintStart_toStartOf="@id/et_verification_code"
+        app:layout_constraintTop_toTopOf="@id/et_verification_code" />
+
+    <Button
+        android:id="@+id/btn_send_phone"
+        style="@style/ButtonInSignUpFragment"
+        android:layout_margin="50dp"
+        android:text="@string/send_phone_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_verification_code" />
+
+    <Button
+        android:id="@+id/btn_verify_code"
+        style="@style/ButtonInSignUpFragment"
+        android:layout_margin="20dp"
+        android:text="@string/submit_verification_code"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_send_phone" />
+
+
+    <TextView
+        android:id="@+id/tv_usage_information"
+        style="@style/TextViewsInSignUpFragment"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/already_using_lifetrack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_verify_code" />
+
+    <TextView
+        style="@style/TextViewsInSignUpFragment"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="-55dp"
+        android:text="@string/log_in"
+        android:textColor="#f85555"
+        app:layout_constraintEnd_toEndOf="@id/tv_usage_information"
+        app:layout_constraintTop_toBottomOf="@id/btn_verify_code" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
