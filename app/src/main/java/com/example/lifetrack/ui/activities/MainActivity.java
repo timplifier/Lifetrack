@@ -2,6 +2,7 @@ package com.example.lifetrack.ui.activities;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -9,6 +10,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.lifetrack.R;
 import com.example.lifetrack.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -29,4 +32,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = navHostFragment.getNavController();
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.homeFragment, R.id.createNotesFragment).build();
     }
+
+
 }

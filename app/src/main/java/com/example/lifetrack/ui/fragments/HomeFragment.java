@@ -21,7 +21,6 @@ import com.example.lifetrack.utilities.interfaces.OnItemClickListener;
 
 
 public class HomeFragment extends Fragment implements OnItemClickListener {
-    AdapterNotes adapterNotes;
     private FragmentHomeBinding binding;
 
     @Override
@@ -42,10 +41,8 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
 
     private void initAdapter() {
         App.getApp().getDb().noteDao().getAllNotes().observe(getViewLifecycleOwner(), taskList -> {
-            adapterNotes = new AdapterNotes(taskList, this);
+            AdapterNotes adapterNotes = new AdapterNotes(taskList, this);
             binding.recyclerview.setAdapter(adapterNotes);
-
-
         });
     }
 
