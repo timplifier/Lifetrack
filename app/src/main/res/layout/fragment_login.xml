@@ -35,6 +35,4 @@
         app:layout_constraintTop_toBottomOf="@id/tv_lifetrack" />
 
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

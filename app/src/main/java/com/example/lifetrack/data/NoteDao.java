@@ -17,7 +17,10 @@ public interface NoteDao {
 
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(NoteModel... noteModels);
+    void insert(NoteModel noteModels);
+
+    @Query("SELECT * FROM note_table ")
+    LiveData<List<NoteModel>> getAllNotes();
 
     @Update
     void updateNotes(NoteModel noteModel);
@@ -25,8 +28,6 @@ public interface NoteDao {
     @Delete
     void delete(NoteModel noteModel);
 
-    @Query("SELECT * FROM note_table ORDER BY id ASC")
-    LiveData<List<NoteModel>> getAllNotes();
 
     @Query("DELETE  FROM note_table")
     void deleteAll();

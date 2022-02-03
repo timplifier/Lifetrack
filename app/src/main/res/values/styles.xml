@@ -64,6 +64,7 @@
         <item name="android:layout_height">35dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/default_edittext_text_size</item>
         <item name="android:background">@drawable/edittext_rectangle_background</item>
     </style>
 
@@ -88,6 +89,13 @@
         <item name="fontFamily">@font/proxima_nova_regular</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="ToolbarInProfileAndHome">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#F85555</item>
+        <item name="titleTextColor">@color/white</item>
     </style>
 
 </resources>

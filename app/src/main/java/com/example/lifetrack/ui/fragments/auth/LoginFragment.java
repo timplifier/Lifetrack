@@ -14,6 +14,7 @@ import com.example.lifetrack.R;
 import com.example.lifetrack.databinding.FragmentLoginBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class LoginFragment extends Fragment {
@@ -48,7 +49,7 @@ public class LoginFragment extends Fragment {
         super.onStart();
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         if (firebaseUser != null) {
-            Navigation.findNavController(requireView()).navigate(R.id.homeFragment);
+            Navigation.findNavController(requireView()).navigate(R.id.profileFragment);
         }
     }
 }
