@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,13 +18,20 @@ import com.example.lifetrack.R;
 import com.example.lifetrack.databinding.FragmentCreateNotesBinding;
 import com.example.lifetrack.models.NoteModel;
 import com.example.lifetrack.utilities.app.App;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class CreateNotesFragment extends BottomSheetDialogFragment implements DatePickerDialog.OnDateSetListener {
     private FragmentCreateNotesBinding binding;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private int startYear;
     private int startMonth;
@@ -72,6 +80,30 @@ public class CreateNotesFragment extends BottomSheetDialogFragment implements Da
         String text = binding.etTask.getText().toString();
         NoteModel noteModel = new NoteModel(text, date, frequency);
         App.getApp().getDb().noteDao().insert(noteModel);
+
+
+        Map<String, String> task = new HashMap<>();
+        task.put("task", noteModel.getTaskName());
+        task.put("date", noteModel.getDate());
+        task.put("frequency", noteModel.getFrequency());
+        db.collection("tasks")
+                .add(task)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Toast.makeText(requireContext(), "You have added a new task", Toast.LENGTH_SHORT).show();
+
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(requireContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
     }
 
 

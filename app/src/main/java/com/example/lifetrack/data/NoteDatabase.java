@@ -5,10 +5,8 @@ import androidx.room.RoomDatabase;
 
 import com.example.lifetrack.models.NoteModel;
 
-@Database(entities = {NoteModel.class}, version = 1, exportSchema = false)
+@Database(entities = {NoteModel.class}, version = 1)
 public abstract class NoteDatabase extends RoomDatabase {
-    private static volatile NoteDatabase INSTANCE;
-
     public abstract NoteDao noteDao();
 
 }

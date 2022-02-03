@@ -108,6 +108,9 @@ public class SignUpFragment extends Fragment {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
+        if (currentUser != null) {
+            Navigation.findNavController(requireView()).navigate(R.id.homeFragment);
+        }
 
     }
 

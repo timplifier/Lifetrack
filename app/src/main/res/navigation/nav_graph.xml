@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_homeFragment_to_createNotesFragment"
             app:destination="@id/createNotesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -37,9 +40,7 @@
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_welcomeScreenFragment"
-            app:destination="@id/welcomeScreenFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -61,6 +62,15 @@
 
         <action
             android:id="@+id/action_welcomeScreenFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.lifetrack.ui.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

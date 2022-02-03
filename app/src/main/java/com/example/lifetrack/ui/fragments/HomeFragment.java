@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.example.lifetrack.R;
 import com.example.lifetrack.adapters.notes.AdapterNotes;
@@ -18,6 +19,8 @@ import com.example.lifetrack.databinding.FragmentHomeBinding;
 import com.example.lifetrack.models.NoteModel;
 import com.example.lifetrack.utilities.app.App;
 import com.example.lifetrack.utilities.interfaces.OnItemClickListener;
+
+import java.util.List;
 
 
 public class HomeFragment extends Fragment implements OnItemClickListener {
@@ -30,18 +33,20 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
         return binding.getRoot();
     }
 
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initListeners();
         initAdapter();
+        initListeners();
 
 
     }
 
+
     private void initAdapter() {
         App.getApp().getDb().noteDao().getAllNotes().observe(getViewLifecycleOwner(), taskList -> {
-            AdapterNotes adapterNotes = new AdapterNotes(taskList, this);
+            AdapterNotes adapterNotes = new AdapterNotes((List<NoteModel>) taskList, this);
             binding.recyclerview.setAdapter(adapterNotes);
         });
     }
@@ -52,6 +57,8 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
             CreateNotesFragment createNotesFragment = new CreateNotesFragment();
             createNotesFragment.show(requireActivity().getSupportFragmentManager(), "");
         });
+        binding.imToolbarProfileIcon.setOnClickListener(view ->
+                Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_profileFragment));
 
 
     }

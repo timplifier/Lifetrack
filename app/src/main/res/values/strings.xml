@@ -43,4 +43,12 @@
     <string name="welcome_aboard">Welcome aboard!</string>
     <string name="get_started">Get started</string>
     <string name="reach_your_goals_faster_and_keep_your_personal_and_professional_life_in_order">Reach your goals faster and keep your personal and professional life in order</string>
+    <string name="user_icon_for_toolbar">user icon for toolbar</string>
+    <string name="profile">profile</string>
+    <string name="icon">icon</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="submit_your_changes">Submit your changes</string>
+    <string name="save_your_profile">Save your profile</string>
+    <string name="read_your_changes">Read your changes</string>
 </resources>

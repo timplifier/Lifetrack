@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fragments.HomeFragment">
+    tools:context=".ui.fragments.ProfileFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -19,49 +19,61 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/home_fragment_toolbar"
+                android:id="@+id/profile_fragment_toolbar"
                 style="@style/ToolbarInProfileAndHome"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:title="Tasks" />
+                app:title="Profile" />
 
             <ImageView
-                android:id="@+id/im_toolbar_profile_icon"
+                android:id="@+id/im_toolbar_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="30dp"
                 android:clickable="true"
                 android:contentDescription="@string/user_icon_for_toolbar"
                 android:focusable="true"
-                android:src="@drawable/user_icon_toolbar"
+                android:src="@drawable/task_list"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/home_fragment_toolbar"
+                app:layout_constraintEnd_toEndOf="@id/profile_fragment_toolbar"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </com.google.android.material.appbar.AppBarLayout>
 
+    <EditText
+        android:id="@+id/et_name"
+        style="@style/EdittextInSignUpFragment"
+        android:layout_margin="15dp"
+        android:autofillHints="name"
+        android:fontFamily="@font/proxima_nova_thin"
+        android:hint="@string/name"
+        android:inputType="text"
+        android:textColorHint="@android:color/darker_gray" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_marginTop="5dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/notes_holder" />
 
+    <EditText
+        android:id="@+id/et_surname"
+        style="@style/EdittextInSignUpFragment"
+        android:autofillHints="name"
+        android:fontFamily="@font/proxima_nova_thin"
+        android:hint="@string/surname"
+        android:inputType="text"
+        android:textColorHint="@android:color/darker_gray" />
 
-    <!-- TODO: Update blank fragment layout -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_create"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:contentDescription="@string/add_extra_task"
-        android:src="@drawable/ic_add_fab" />
+    <Button
+        android:id="@+id/btn_changes_submit"
+        style="@style/ButtonInSignUpFragment"
+        android:layout_margin="25dp"
+        android:text="@string/submit_your_changes" />
 
+    <Button
+        android:id="@+id/btn_read_changes"
+        style="@style/ButtonInSignUpFragment"
+        android:text="@string/read_your_changes" />
 
 </LinearLayout>
