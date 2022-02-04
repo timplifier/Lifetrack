@@ -11,15 +11,16 @@ import com.example.lifetrack.models.NoteModel;
 import java.util.List;
 
 @Dao
-public interface TaskDao {
+public interface NoteDao {
     @Insert
     void insert(NoteModel noteModel);
 
     @Delete
     void delete(NoteModel noteModel);
 
-    @Query("Select * FROM note_table")
+    @Query("SELECT * FROM note_table")
     LiveData<List<NoteModel>> getData();
 
-
+    @Query("DELETE FROM note_table")
+    void deleteAll();
 }

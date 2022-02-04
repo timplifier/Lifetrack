@@ -43,7 +43,7 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
 
 
     private void initAdapter() {
-        App.getApp().getDb().taskDao().getData().observe(getViewLifecycleOwner(), taskList -> {
+        App.getApp().getDb().noteDao().getData().observe(getViewLifecycleOwner(), taskList -> {
             AdapterNotes adapterNotes = new AdapterNotes(taskList, this);
             binding.recyclerview.setAdapter(adapterNotes);
         });
@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        App.getApp().getDb().taskDao().delete(model);
+                        App.getApp().getDb().noteDao().delete(model);
                         Toast.makeText(getActivity(), "You have successfully deleted this task!", Toast.LENGTH_SHORT).show();
 
                     }

@@ -7,5 +7,5 @@ import com.example.lifetrack.models.NoteModel;
 
 @Database(entities = {NoteModel.class}, version = 1)
 public abstract class AppDataBase extends RoomDatabase {
-    public abstract TaskDao taskDao();
+    public abstract NoteDao noteDao();
 }

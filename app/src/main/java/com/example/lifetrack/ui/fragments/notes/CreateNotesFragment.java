@@ -24,6 +24,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class CreateNotesFragment extends BottomSheetDialogFragment implements DatePickerDialog.OnDateSetListener {
@@ -75,9 +77,14 @@ public class CreateNotesFragment extends BottomSheetDialogFragment implements Da
     private void sendToDatabase() {
         String text = binding.etTask.getText().toString();
         NoteModel noteModel = new NoteModel(text, date, frequency);
-        App.getApp().getDb().taskDao().insert(noteModel);
+        App.getApp().getDb().noteDao().insert(noteModel);
+        Map<String,String> task = new HashMap<>();
+        task.put("taskName", noteModel.getTaskName());
+        task.put("date", noteModel.getDate());
+        task.put("frequency", noteModel.getFrequency());
+
         db.collection("tasks")
-                .add(noteModel)
+                .add(task)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
