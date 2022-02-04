@@ -1,4 +1,4 @@
-package com.example.lifetrack.ui.fragments;
+package com.example.lifetrack.ui.fragments.profile;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +14,7 @@ import androidx.navigation.Navigation;
 
 import com.example.lifetrack.R;
 import com.example.lifetrack.databinding.FragmentProfileBinding;
+import com.example.lifetrack.models.UserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,13 +23,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileFragment extends Fragment {
     private static final String TAG = "Profile Fragment";
-    private FragmentProfileBinding binding;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FragmentProfileBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,10 +56,10 @@ public class ProfileFragment extends Fragment {
                                 if (task.isSuccessful()) {
                                     for (QueryDocumentSnapshot document : task.getResult()) {
                                         Map<String, Object> user = document.getData();
-                                        Log.e("hm,seems guchi", "onComplete: " + "/n" + user.get("name" + "/n" + user.get("surname")));
+                                        Log.e("hm,seems guchi", "onComplete: " + "/n" + user.get("name") + "/n" + user.get("surname"));
                                     }
                                 } else {
-                                    Log.e("fuck you then", "onComplete: " + task.getException());
+                                    Log.e("no data to be read", "onComplete: " + task.getException());
 
                                 }
 
@@ -74,13 +74,10 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 String name = binding.etName.getText().toString();
                 String surname = binding.etSurname.getText().toString();
-                Map<String, String> user = new HashMap<>();
-                user.put("name", name);
-                user.put("surname", surname);
+                UserModel user = new UserModel(name, surname);
                 db.collection("users")
                         .document("User profile")
                         .set(user)
-
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="12dp"
-    tools:context=".ui.fragments.CreateNotesFragment">
+    tools:context=".ui.fragments.notes.CreateNotesFragment">
 
     <EditText
         android:id="@+id/et_task"

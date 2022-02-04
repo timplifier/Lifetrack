@@ -1,4 +1,4 @@
-package com.example.lifetrack.ui.fragments;
+package com.example.lifetrack.ui.fragments.notes;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,14 +24,11 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class CreateNotesFragment extends BottomSheetDialogFragment implements DatePickerDialog.OnDateSetListener {
-    private FragmentCreateNotesBinding binding;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+    private FragmentCreateNotesBinding binding;
     private int startYear;
     private int startMonth;
     private int startDay;
@@ -79,19 +75,12 @@ public class CreateNotesFragment extends BottomSheetDialogFragment implements Da
     private void sendToDatabase() {
         String text = binding.etTask.getText().toString();
         NoteModel noteModel = new NoteModel(text, date, frequency);
-        App.getApp().getDb().noteDao().insert(noteModel);
-
-
-        Map<String, String> task = new HashMap<>();
-        task.put("task", noteModel.getTaskName());
-        task.put("date", noteModel.getDate());
-        task.put("frequency", noteModel.getFrequency());
+        App.getApp().getDb().taskDao().insert(noteModel);
         db.collection("tasks")
-                .add(task)
+                .add(noteModel)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(requireContext(), "You have added a new task", Toast.LENGTH_SHORT).show();
 
 
                     }
@@ -99,7 +88,6 @@ public class CreateNotesFragment extends BottomSheetDialogFragment implements Da
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(requireContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
                 });

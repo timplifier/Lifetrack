@@ -14,7 +14,6 @@ import com.example.lifetrack.R;
 import com.example.lifetrack.databinding.FragmentLoginBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class LoginFragment extends Fragment {

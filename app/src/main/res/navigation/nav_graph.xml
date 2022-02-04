@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/profileFragment">
 
     <dialog
         android:id="@+id/createNotesFragment"
-        android:name="com.example.lifetrack.ui.fragments.CreateNotesFragment"
+        android:name="com.example.lifetrack.ui.fragments.notes.CreateNotesFragment"
         android:label="fragment_create_task"
         tools:layout="@layout/fragment_create_notes" />
     <fragment
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.lifetrack.ui.fragments.HomeFragment"
+        android:name="com.example.lifetrack.ui.fragments.notes.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -66,9 +66,9 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.lifetrack.ui.fragments.ProfileFragment"
+        android:name="com.example.lifetrack.ui.fragments.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
