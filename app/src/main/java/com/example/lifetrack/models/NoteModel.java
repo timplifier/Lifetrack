@@ -5,11 +5,11 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "note_table")
 public class NoteModel {
-    @PrimaryKey(autoGenerate = true)
-    public int id;
     private final String taskName;
     private final String date;
     private final String frequency;
+    @PrimaryKey(autoGenerate = true)
+    public int id;
 
     public NoteModel(String taskName, String date, String frequency) {
         this.taskName = taskName;
