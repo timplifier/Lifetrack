@@ -1,4 +1,4 @@
-package com.example.lifetrack.ui.activities;
+package com.example.lifetrack.ui.activity;
 
 import android.os.Bundle;
 
