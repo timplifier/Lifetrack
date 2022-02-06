@@ -74,7 +74,6 @@ public class CreateNotesFragment extends BottomSheetDialogFragment implements Da
     private void sendToDatabase() {
         String text = binding.etTask.getText().toString();
         NoteModel noteModel = new NoteModel(text, date, frequency);
-//        App.getApp().getDb().taskDao().insert(noteModel);
         db.collection("tasks")
                 .add(noteModel)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

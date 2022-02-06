@@ -5,7 +5,7 @@ import android.app.Application;
 
 public class App extends Application {
     static App app;
-//    AppDataBase db;
+
 
     public static App getApp() {
         return app;
@@ -15,12 +15,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
-//        db = Room.databaseBuilder(getApplicationContext(), AppDataBase.class, "noteBase").allowMainThreadQueries().build();
-    }
 
-//    public AppDataBase getDb() {
-//        return db;
-//    }
+    }
 
 
 }
