@@ -19,10 +19,21 @@ import com.example.lifetrack.databinding.FragmentHomeBinding;
 import com.example.lifetrack.models.NoteModel;
 import com.example.lifetrack.utilities.app.App;
 import com.example.lifetrack.utilities.interfaces.OnItemClickListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment implements OnItemClickListener {
     private FragmentHomeBinding binding;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    List<NoteModel> list = new ArrayList<>();
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -43,9 +54,24 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
 
 
     private void initAdapter() {
+        db.collection("tasks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        NoteModel noteModel = document.toObject(NoteModel.class);
+                        String taskName = noteModel.getTaskName();
+                        String date = noteModel.getDate();
+                        String frequency = noteModel.getFrequency();
+                        list.add(noteModel);
+                    }
+                }
+            }
+        });
         App.getApp().getDb().taskDao().getData().observe(getViewLifecycleOwner(), taskList -> {
-            AdapterNotes adapterNotes = new AdapterNotes(taskList, this);
+            AdapterNotes adapterNotes = new AdapterNotes(list, this);
             binding.recyclerview.setAdapter(adapterNotes);
+
         });
     }
 

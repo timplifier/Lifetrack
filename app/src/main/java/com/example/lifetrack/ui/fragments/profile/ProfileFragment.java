@@ -19,16 +19,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.Map;
 
 public class ProfileFragment extends Fragment {
     private static final String TAG = "Profile Fragment";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FragmentProfileBinding binding;
+    private DocumentReference profileReference = db.collection("users").document("User profile");
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,13 +41,14 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initListeners();
+        retrieveData();
 
     }
 
-    private void initListeners() {
-        binding.btnReadChanges.setOnClickListener(new View.OnClickListener() {
+    private void retrieveData() {
+        db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onClick(View view) {
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 db.collection("users")
                         .get()
                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -55,8 +56,12 @@ public class ProfileFragment extends Fragment {
                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                 if (task.isSuccessful()) {
                                     for (QueryDocumentSnapshot document : task.getResult()) {
-                                        Map<String, Object> user = document.getData();
-                                        Log.e("hm,seems guchi", "onComplete: " + "/n" + user.get("name") + "/n" + user.get("surname"));
+                                        UserModel userModel = document.toObject(UserModel.class);
+                                        String name = userModel.getName();
+                                        String surname = userModel.getSurname();
+                                        binding.etName.setText(name);
+                                        binding.etSurname.setText(surname);
+                                        Log.e("hm,seems guchi", "onComplete: " + "/n" + userModel.getName() + "/n" + userModel.getSurname());
                                     }
                                 } else {
                                     Log.e("no data to be read", "onComplete: " + task.getException());
@@ -69,6 +74,10 @@ public class ProfileFragment extends Fragment {
 
             }
         });
+    }
+
+
+    private void initListeners() {
         binding.btnChangesSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
