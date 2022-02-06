@@ -28,4 +28,27 @@
     <string name="never">Never</string>
     <string name="repeat_task">Repeat task</string>
     <string name="add_extra_task">ADD EXTRA TASK</string>
+    <string name="lifetrack">Lifetrack</string>
+    <string name="log_in">Log in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="lifetrack_icon">Lifetrack icon</string>
+    <string name="your_verification_code">Your verification code</string>
+    <string name="send_phone_number">Send phone number</string>
+    <string name="verify_your_phone_number">Verify your phone number</string>
+    <string name="your_number">Your number</string>
+    <string name="number">Number</string>
+    <string name="verification_code">Verification code</string>
+    <string name="submit_verification_code">Submit verification code</string>
+    <string name="already_using_lifetrack">Already using Lifetrack?</string>
+    <string name="welcome_aboard">Welcome aboard!</string>
+    <string name="get_started">Get started</string>
+    <string name="reach_your_goals_faster_and_keep_your_personal_and_professional_life_in_order">Reach your goals faster and keep your personal and professional life in order</string>
+    <string name="user_icon_for_toolbar">user icon for toolbar</string>
+    <string name="profile">profile</string>
+    <string name="icon">icon</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="submit_your_changes">Submit your changes</string>
+    <string name="save_your_profile">Save your profile</string>
+    <string name="read_your_changes">Read your changes</string>
 </resources>

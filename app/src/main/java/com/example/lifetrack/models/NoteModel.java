@@ -1,24 +1,18 @@
 package com.example.lifetrack.models;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-
 @Entity(tableName = "note_table")
 public class NoteModel {
-
     @PrimaryKey(autoGenerate = true)
     public int id;
 
-    @ColumnInfo(name = "task_name")
-    public String taskName;
+    private String taskName;
+    private String date;
+    private String frequency;
 
-    @ColumnInfo(name = "date")
-    public String date;
 
-    @ColumnInfo(name = "frequency")
-    public String frequency;
 
 
     public NoteModel(String taskName, String date, String frequency) {
@@ -26,6 +20,11 @@ public class NoteModel {
         this.date = date;
         this.frequency = frequency;
     }
+
+    public NoteModel() {
+
+    }
+
 
     public String getTaskName() {
         return taskName;

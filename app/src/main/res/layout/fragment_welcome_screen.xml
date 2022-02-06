@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fragment_get_start_background"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.auth.WelcomeScreenFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        style="@style/LifetrackTextView"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/proxima_nova_thin"
+        android:text="@string/welcome_aboard"
+        android:textColor="@color/white"
+        android:textSize="35sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="225dp"
+        android:gravity="center"
+        android:text="@string/reach_your_goals_faster_and_keep_your_personal_and_professional_life_in_order"
+        android:textColor="@color/black"
+        android:textSize="@dimen/default_textview_size" />
+
+    <Button
+        android:id="@+id/btn_get_started"
+        style="@style/ButtonInSignUpFragment"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="@string/get_started" />
+
+</LinearLayout>

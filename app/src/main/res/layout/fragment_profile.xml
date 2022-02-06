@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.profile.ProfileFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/profile_fragment_toolbar"
+                style="@style/ToolbarInProfileAndHome"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="Profile" />
+
+            <ImageView
+                android:id="@+id/im_toolbar_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="30dp"
+                android:clickable="true"
+                android:contentDescription="@string/user_icon_for_toolbar"
+                android:focusable="true"
+                android:src="@drawable/task_list"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/profile_fragment_toolbar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <EditText
+        android:id="@+id/et_name"
+        style="@style/EdittextInSignUpFragment"
+        android:layout_margin="15dp"
+        android:autofillHints="name"
+        android:fontFamily="@font/proxima_nova_thin"
+        android:hint="@string/name"
+        android:inputType="text"
+        android:textColorHint="@android:color/darker_gray" />
+
+
+    <EditText
+        android:id="@+id/et_surname"
+        style="@style/EdittextInSignUpFragment"
+        android:autofillHints="name"
+        android:fontFamily="@font/proxima_nova_thin"
+        android:hint="@string/surname"
+        android:inputType="text"
+        android:textColorHint="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/btn_changes_submit"
+        style="@style/ButtonInSignUpFragment"
+        android:layout_margin="25dp"
+        android:text="@string/submit_your_changes" />
+
+    <Button
+        android:id="@+id/btn_read_changes"
+        style="@style/ButtonInSignUpFragment"
+        android:text="@string/read_your_changes" />
+
+</LinearLayout>

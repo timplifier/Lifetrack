@@ -27,9 +27,6 @@ public class AdapterNotes extends RecyclerView.Adapter<AdapterNotes.HolderNotes>
 
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.onItemClickListener = listener;
-    }
 
     @NonNull
     @Override

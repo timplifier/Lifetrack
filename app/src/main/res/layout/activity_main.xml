@@ -4,21 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
-    <!--    <androidx.appcompat.widget.Toolbar-->
-    <!--        android:id="@+id/toolbar"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:background="#E4323A"-->
-    <!--        app:layout_constraintTop_toTopOf="parent">-->
-
-    <!--        <ImageView-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:src="@drawable/toolbar_menu" />-->
-
-    <!--    </androidx.appcompat.widget.Toolbar>-->
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
