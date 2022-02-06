@@ -16,7 +16,6 @@ import androidx.annotation.Nullable;
 import com.example.lifetrack.R;
 import com.example.lifetrack.databinding.FragmentCreateNotesBinding;
 import com.example.lifetrack.models.NoteModel;
-import com.example.lifetrack.utilities.app.App;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -75,7 +74,7 @@ public class CreateNotesFragment extends BottomSheetDialogFragment implements Da
     private void sendToDatabase() {
         String text = binding.etTask.getText().toString();
         NoteModel noteModel = new NoteModel(text, date, frequency);
-        App.getApp().getDb().taskDao().insert(noteModel);
+//        App.getApp().getDb().taskDao().insert(noteModel);
         db.collection("tasks")
                 .add(noteModel)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

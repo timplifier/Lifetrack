@@ -17,7 +17,6 @@ import com.example.lifetrack.R;
 import com.example.lifetrack.adapters.notes.AdapterNotes;
 import com.example.lifetrack.databinding.FragmentHomeBinding;
 import com.example.lifetrack.models.NoteModel;
-import com.example.lifetrack.utilities.app.App;
 import com.example.lifetrack.utilities.interfaces.OnItemClickListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -68,11 +67,11 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
                 }
             }
         });
-        App.getApp().getDb().taskDao().getData().observe(getViewLifecycleOwner(), taskList -> {
-            AdapterNotes adapterNotes = new AdapterNotes(list, this);
-            binding.recyclerview.setAdapter(adapterNotes);
+//        App.getApp().getDb().taskDao().getData().observe(getViewLifecycleOwner(), taskList -> {
+        AdapterNotes adapterNotes = new AdapterNotes(list, this);
+        binding.recyclerview.setAdapter(adapterNotes);
 
-        });
+//        });
     }
 
 
@@ -95,7 +94,7 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        App.getApp().getDb().taskDao().delete(model);
+//                        App.getApp().getDb().taskDao().delete(model);
                         Toast.makeText(getActivity(), "You have successfully deleted this task!", Toast.LENGTH_SHORT).show();
 
                     }

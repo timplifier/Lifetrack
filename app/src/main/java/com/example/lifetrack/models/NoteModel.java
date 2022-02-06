@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey;
 public class NoteModel {
     @PrimaryKey(autoGenerate = true)
     public int id;
+
     private String taskName;
     private String date;
     private String frequency;
